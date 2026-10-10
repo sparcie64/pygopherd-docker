@@ -1,7 +1,7 @@
 FROM debian:trixie
 
 
-RUN apt-get update && apt install -y python3 curl logrotate patch pygopherd
+RUN apt-get update && apt-get upgrade -y && apt install -y python3 curl logrotate patch pygopherd
 ADD conf/pygopherd.conf /etc/pygopherd/pygopherd.conf
 
 EXPOSE 70
