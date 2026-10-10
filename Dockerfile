@@ -1,8 +1,17 @@
-FROM debian:trixie
+FROM debian:bookworm
 
 
-RUN apt-get update && apt-get upgrade -y && apt install -y python3 curl logrotate patch pygopherd
+RUN apt-get update && apt-get upgrade -y && apt install -y python3-full curl logrotate patch git-core python3-pip media-types
+WORKDIR /tmp
+RUN git clone https://github.com/michael-lazar/pygopherd
+WORKDIR /tmp/pygopherd
+RUN python3 -m pip install --break-system-packages .
+WORKDIR /opt/gopher
+
+
 ADD conf/pygopherd.conf /etc/pygopherd/pygopherd.conf
+ADD conf/mime.types /etc/mime.types
+ADD conf/mime.types /etc/pygopherd/mime.types
 
 EXPOSE 70
 

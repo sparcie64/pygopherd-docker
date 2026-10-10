@@ -2,9 +2,11 @@
 
 As the name says, PyGopherD in Docker
 
+## Credits
+
 based on: [https://github.com/kalemeow/pygopherd-docker]
 
-By Sparcie
+Rebuilt by Sparcie
 
 ## Usage
 
